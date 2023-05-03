@@ -1,6 +1,7 @@
 # restaurant-management-system
 
 MySQL Workbench download: https://www.mysql.com/products/workbench/
+
 MySQL Community Server download (may be required to create and connect to a database): https://dev.mysql.com/downloads/mysql/
 
 To ensure MySQL is running on Windows:
