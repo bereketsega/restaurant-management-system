@@ -2,7 +2,7 @@ package database.model;
 
 public class Supplier {
     private String supplierId;
-    private long supplierPhone;
+    private String supplierPhone;
     private String supplierCity;
     private String supplierAddress;
 
@@ -17,7 +17,7 @@ public class Supplier {
         return supplierId;
     }
 
-    public long getSupplierPhone() {
+    public String getSupplierPhone() {
         return supplierPhone;
     }
 
@@ -33,7 +33,7 @@ public class Supplier {
         this.supplierId = supplierId;
     }
 
-    public void setSupplierPhone(long supplierPhone) {
+    public void setSupplierPhone(String supplierPhone) {
         this.supplierPhone = supplierPhone;
     }
 
