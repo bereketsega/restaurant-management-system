@@ -20,7 +20,6 @@ public class Database {
     public static Connection getConnection() {
         if (connection == null) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(url, user, password);
             } catch (Exception e) {
                 System.out.println("Error Connecting to Database!");

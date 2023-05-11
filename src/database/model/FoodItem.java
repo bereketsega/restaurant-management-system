@@ -13,6 +13,13 @@ public class FoodItem {
         this.foodIngredientId = foodIngredientId;
     }
 
+    public FoodItem(FoodItem foodItem) {
+        this.foodId = foodItem.getFoodId();
+        this.foodName = foodItem.getFoodName();
+        this.foodPrice = foodItem.getFoodPrice();
+        this.foodIngredientId = foodItem.getFoodIngredientId();
+    }
+
     public int getFoodId() {
         return foodId;
     }

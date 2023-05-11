@@ -1,23 +1,23 @@
 package database.model;
 
 public class Supplier {
-    private int supplierId;
-    private int supplierPhone;
+    private String supplierId;
+    private long supplierPhone;
     private String supplierCity;
     private String supplierAddress;
 
-    public Supplier(int supplierId, int supplierPhone, String supplierCity, String supplierAddress) {
+    public Supplier(String supplierId, long supplierPhone, String supplierCity, String supplierAddress) {
         this.supplierId = supplierId;
         this.supplierPhone = supplierPhone;
         this.supplierCity = supplierCity;
         this.supplierAddress = supplierAddress;
     }
 
-    public int getSupplierId() {
+    public String getSupplierId() {
         return supplierId;
     }
 
-    public int getSupplierPhone() {
+    public long getSupplierPhone() {
         return supplierPhone;
     }
 
@@ -29,11 +29,11 @@ public class Supplier {
         return supplierAddress;
     }
 
-    public void setSupplierId(int supplierId) {
+    public void setSupplierId(String supplierId) {
         this.supplierId = supplierId;
     }
 
-    public void setSupplierPhone(int supplierPhone) {
+    public void setSupplierPhone(long supplierPhone) {
         this.supplierPhone = supplierPhone;
     }
 
