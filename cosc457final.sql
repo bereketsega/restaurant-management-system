@@ -157,10 +157,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `cosc457final`.`ORDER`
+-- Table `cosc457final`.`ORDERS`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cosc457final`.`ORDER` (
-  `orderID` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `cosc457final`.`ORDERS` (
+  `orderID` INT NOT NULL AUTO_INCREMENT,
   `orderDate` DATE NULL,
   `orderCustomerID` VARCHAR(45) NULL,
   `foodItemID` VARCHAR(45) NULL,
