@@ -16,7 +16,7 @@ public class Main {
         Menu menu = new Menu();
         OrderService orderService = new OrderService();
         // create customer
-        Customer customer = new Customer(1,"John", "Doe", "123-456-7890", "1234 Main St", 34353533425L);
+        Customer customer = new Customer(1,"John", "Doe", "123-456-7890", "1234 Main St", "3435353342");
 
         try {
             // Add customer
