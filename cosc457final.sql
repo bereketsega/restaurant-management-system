@@ -31,12 +31,12 @@ ENGINE = InnoDB;
 -- Table `cosc457final`.`CUSTOMER`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cosc457final`.`CUSTOMER` (
-  `customerID` VARCHAR(45) NOT NULL,
+  `customerID` INT NOT NULL,
   `customerFName` VARCHAR(45) NULL,
   `customerLName` VARCHAR(45) NULL,
   `customerSSN` INT(9) NOT NULL,
   `customerAddress` VARCHAR(45) NULL,
-  `customerPhone` INT(10) NULL,
+  `customerPhone` VARCHAR(45) NULL,
   `customerPayID` VARCHAR(45) NULL,
   `customerFoodID` VARCHAR(45) NULL,
   PRIMARY KEY (`customerID`, `customerSSN`),
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `cosc457final`.`WAITER` (
   `SSN` INT(9) NOT NULL,
   `phoneNumber` INT(10) NULL,
   `mgrSSN` INT(9) NULL,
-  `customID` VARCHAR(45) NULL,
+  `customID` INT NULL,
   PRIMARY KEY (`waiterID`, `SSN`),
   INDEX `customID_idx` (`customID` ASC) VISIBLE,
   CONSTRAINT `customID`
@@ -76,7 +76,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cosc457final`.`SUPPLIER` (
   `supplierID` VARCHAR(45) NOT NULL,
-  `supplierPhone` INT(10) NULL,
+  `supplierPhone` VARCHAR(45) NULL,
   `supplierCity` VARCHAR(45) NULL,
   `supplierAddress` VARCHAR(45) NULL,
   PRIMARY KEY (`supplierID`))
@@ -162,7 +162,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `cosc457final`.`ORDERS` (
   `orderID` INT NOT NULL AUTO_INCREMENT,
   `orderDate` DATE NULL,
-  `orderCustomerID` VARCHAR(45) NULL,
+  `orderCustomerID` INT NULL,
   `foodItemID` VARCHAR(45) NULL,
   PRIMARY KEY (`orderID`),
   INDEX `orderCustomerID_idx` (`orderCustomerID` ASC) VISIBLE,
