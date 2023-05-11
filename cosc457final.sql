@@ -28,6 +28,50 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `cosc457final`.`CUSTOMER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosc457final`.`CUSTOMER` (
+  `customerID` VARCHAR(45) NOT NULL,
+  `customerFName` VARCHAR(45) NULL,
+  `customerLName` VARCHAR(45) NULL,
+  `customerSSN` INT(9) NOT NULL,
+  `customerAddress` VARCHAR(45) NULL,
+  `customerPhone` INT(10) NULL,
+  `customerPayID` VARCHAR(45) NULL,
+  `customerFoodID` VARCHAR(45) NULL,
+  PRIMARY KEY (`customerID`, `customerSSN`),
+  INDEX `customerPayID_idx` (`customerPayID` ASC) VISIBLE,
+  CONSTRAINT `customerPayID`
+    FOREIGN KEY (`customerPayID`)
+    REFERENCES `cosc457final`.`PAYMENT` (`paymentID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cosc457final`.`WAITER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosc457final`.`WAITER` (
+  `waiterID` VARCHAR(45) NOT NULL,
+  `fname` VARCHAR(45) NULL,
+  `m_init` VARCHAR(45) NULL,
+  `lname` VARCHAR(45) NULL,
+  `SSN` INT(9) NOT NULL,
+  `phoneNumber` INT(10) NULL,
+  `mgrSSN` INT(9) NULL,
+  `customID` VARCHAR(45) NULL,
+  PRIMARY KEY (`waiterID`, `SSN`),
+  INDEX `customID_idx` (`customID` ASC) VISIBLE,
+  CONSTRAINT `customID`
+    FOREIGN KEY (`customID`)
+    REFERENCES `cosc457final`.`CUSTOMER` (`customerID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `cosc457final`.`SUPPLIER`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cosc457final`.`SUPPLIER` (
@@ -77,56 +121,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `cosc457final`.`CUSTOMER`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cosc457final`.`CUSTOMER` (
-  `customerID` VARCHAR(45) NOT NULL,
-  `customerFName` VARCHAR(45) NULL,
-  `customerLName` VARCHAR(45) NULL,
-  `customerSSN` INT(9) NOT NULL,
-  `customerAddress` VARCHAR(45) NULL,
-  `customerPhone` INT(10) NULL,
-  `customerPayID` VARCHAR(45) NULL,
-  `customerFoodID` VARCHAR(45) NULL,
-  PRIMARY KEY (`customerID`, `customerSSN`),
-  INDEX `customerPayID_idx` (`customerPayID` ASC) VISIBLE,
-  INDEX `foodID_idx` (`customerFoodID` ASC) VISIBLE,
-  CONSTRAINT `customerPayID`
-    FOREIGN KEY (`customerPayID`)
-    REFERENCES `cosc457final`.`PAYMENT` (`paymentID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `foodID`
-    FOREIGN KEY (`customerFoodID`)
-    REFERENCES `cosc457final`.`FOOD_ITEM` (`foodID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `cosc457final`.`WAITER`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `cosc457final`.`WAITER` (
-  `waiterID` VARCHAR(45) NOT NULL,
-  `fname` VARCHAR(45) NULL,
-  `m_init` VARCHAR(45) NULL,
-  `lname` VARCHAR(45) NULL,
-  `SSN` INT(9) NOT NULL,
-  `phoneNumber` INT(10) NULL,
-  `mgrSSN` INT(9) NULL,
-  `customID` VARCHAR(45) NULL,
-  PRIMARY KEY (`waiterID`, `SSN`),
-  INDEX `customID_idx` (`customID` ASC) VISIBLE,
-  CONSTRAINT `customID`
-    FOREIGN KEY (`customID`)
-    REFERENCES `cosc457final`.`CUSTOMER` (`customerID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `cosc457final`.`MENU`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cosc457final`.`MENU` (
@@ -156,6 +150,30 @@ CREATE TABLE IF NOT EXISTS `cosc457final`.`CHEF` (
   INDEX `chefOrderID_idx` (`chefOrderID` ASC) VISIBLE,
   CONSTRAINT `chefOrderID`
     FOREIGN KEY (`chefOrderID`)
+    REFERENCES `cosc457final`.`FOOD_ITEM` (`foodID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cosc457final`.`ORDER`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cosc457final`.`ORDER` (
+  `orderID` INT NOT NULL,
+  `orderDate` DATE NULL,
+  `orderCustomerID` VARCHAR(45) NULL,
+  `foodItemID` VARCHAR(45) NULL,
+  PRIMARY KEY (`orderID`),
+  INDEX `orderCustomerID_idx` (`orderCustomerID` ASC) VISIBLE,
+  INDEX `orderFoodID_idx` (`foodItemID` ASC) VISIBLE,
+  CONSTRAINT `orderCustomerID`
+    FOREIGN KEY (`orderCustomerID`)
+    REFERENCES `cosc457final`.`CUSTOMER` (`customerID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `orderFoodID`
+    FOREIGN KEY (`foodItemID`)
     REFERENCES `cosc457final`.`FOOD_ITEM` (`foodID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
