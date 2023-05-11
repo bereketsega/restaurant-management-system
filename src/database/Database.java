@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 
 public class Database {
     private static Connection connection;
-    private static final String url = "jdbc:mysql://triton.towson.edu:3360/cosc457final";
+    private static final String url = "jdbc:mysql://triton.towson.edu:3360/bsega1db";
     private static final String user = "bsega1";
     private static final String password = "COSC*k9aol";
 

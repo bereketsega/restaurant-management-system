@@ -6,7 +6,7 @@ public class Supplier {
     private String supplierCity;
     private String supplierAddress;
 
-    public Supplier(String supplierId, long supplierPhone, String supplierCity, String supplierAddress) {
+    public Supplier(String supplierId, String supplierPhone, String supplierCity, String supplierAddress) {
         this.supplierId = supplierId;
         this.supplierPhone = supplierPhone;
         this.supplierCity = supplierCity;

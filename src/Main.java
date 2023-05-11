@@ -9,10 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Login login = new Login();
-        login.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
-        login.setVisible(true);
-
         Menu menu = new Menu();
         OrderService orderService = new OrderService();
         // create customer
@@ -58,5 +54,10 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("Error: " + e);
         }
+
+        Login login = new Login();
+        login.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
+        login.setVisible(true);
+
     }
 }
