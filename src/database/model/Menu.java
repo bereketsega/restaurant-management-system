@@ -15,9 +15,9 @@ public class Menu {
         // add dummy food items
 
         suppliers = new ArrayList<>();
-        suppliers.add(new Supplier("1", 23409883444L, "Towson", "89 Gorkhali Lane"));
-        suppliers.add(new Supplier("2", 1234567890L, "Baltimore","89 Nepali Lane"));
-        suppliers.add(new Supplier("3", 89333529024L, "Washington, DC", "89 Himalayan Lane"));
+        suppliers.add(new Supplier("1", "23409883444", "Towson", "89 Gorkhali Lane"));
+        suppliers.add(new Supplier("2", "1234567890", "Baltimore","89 Nepali Lane"));
+        suppliers.add(new Supplier("3", "89333529024", "Washington, DC", "89 Himalayan Lane"));
 
         ingredients = new ArrayList<>();
         ingredients.add(new Ingredient(1, "Rice", "Grain", 1.99, 1));
