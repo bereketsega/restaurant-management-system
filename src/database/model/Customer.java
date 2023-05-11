@@ -6,12 +6,12 @@ public class Customer {
     private String customerLName;
     private String customerSSN;
     private String customerAddress;
-    private long customerPhone;
+    private String customerPhone;
     private String customerPayId; // refers to Payment.paymentId
     private String cutomerFoodId; // refers to FoodItem.foodId
 
     public Customer(int customerId, String customerFName, String customerLName, String customerSSN,
-                    String customerAddress, long customerPhone, String customerPayId, String cutomerFoodId) {
+                    String customerAddress, String customerPhone, String customerPayId, String cutomerFoodId) {
         this.customerId = customerId;
         this.customerFName = customerFName;
         this.customerLName = customerLName;
@@ -23,7 +23,7 @@ public class Customer {
     }
 
     public Customer(int customerId, String customerFName, String customerLName, String customerSSN,
-                    String customerAddress, long customerPhone) {
+                    String customerAddress, String customerPhone) {
         this.customerId = customerId;
         this.customerFName = customerFName;
         this.customerLName = customerLName;
@@ -52,7 +52,7 @@ public class Customer {
         return customerAddress;
     }
 
-    public long getCustomerPhone() {
+    public String getCustomerPhone() {
         return customerPhone;
     }
 
@@ -84,7 +84,7 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public void setCustomerPhone(long customerPhone) {
+    public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
     }
 
