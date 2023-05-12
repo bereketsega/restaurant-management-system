@@ -128,6 +128,7 @@ public class Login extends javax.swing.JFrame {
         loginPanel.getAccessibleContext().setAccessibleName("");
 
         pack();
+         setLocationRelativeTo(null);
     }
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
